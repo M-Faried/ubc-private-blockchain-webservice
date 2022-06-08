@@ -1,0 +1,26 @@
+{
+  "name": "private-blockchain-webservice",
+  "version": "1.0.0",
+  "description": "An ExpressJS webservice which wraps all the services provided by a private blockchain.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-Faried/udacity-blockchain-private-blockchain-webservice.git"
+  },
+  "author": "Mohamed Faried",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/M-Faried/udacity-blockchain-private-blockchain-webservice/issues"
+  },
+  "homepage": "https://github.com/M-Faried/udacity-blockchain-private-blockchain-webservice#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "crypto-js": "^4.1.1",
+    "express-validator": "^6.14.1",
+    "expressjs": "^1.0.1",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
