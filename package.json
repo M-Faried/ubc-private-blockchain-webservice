@@ -4,7 +4,7 @@
   "description": "An ExpressJS webservice which wraps all the services provided by a private blockchain.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,12 @@
   "dependencies": {
     "colors": "^1.4.0",
     "crypto-js": "^4.1.1",
-    "express-validator": "^6.14.1",
-    "expressjs": "^1.0.1",
-    "jsonwebtoken": "^8.5.1"
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "bitcoinjs-lib": "^4.0.3",
+    "bitcoinjs-message": "^2.0.0",
+    "body-parser": "^1.18.3",
+    "hex2ascii": "0.0.3",
+    "morgan": "^1.9.1"
   }
 }
