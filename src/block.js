@@ -16,11 +16,11 @@ class Block {
 
     // Constructor - argument data will be the object containing the transaction data
     constructor(data) {
-        this.hash = null;                                           // Hash of the block
-        this.height = 0;                                            // Block Height (consecutive number of each block)
-        this.body = Buffer.from(JSON.stringify(data)).toString('hex');   // Will contain the transactions stored in the block, by default it will encode the data
-        this.time = 0;                                              // Timestamp for the Block creation
-        this.previousBlockHash = null;                              // Reference to the previous Block Hash
+        this.hash = null;                                               // Hash of the block
+        this.height = 0;                                                // Block Height (consecutive number of each block)
+        this.body = Buffer.from(JSON.stringify(data)).toString('hex');  // Will contain the transactions stored in the block, by default it will encode the data
+        this.timestamp = 0;                                             // Timestamp for the Block creation
+        this.previousBlockHash = null;                                  // Reference to the previous Block Hash
     }
 
     /**
@@ -43,7 +43,12 @@ class Block {
             // Comparing if the hashes changed
             // Returning the Block is not valid
             // Returning the Block is valid
-
+            // const hasedFields = {
+            //     timestamp: self.timestamp,
+            //     height: self.height,
+            //     body: self.body,
+            //     previousBlockHash: self.previousBlockHash || null
+            // }
             const blockHash = SHA256(JSON.stringify(self)).toString();
             resolve(blockHash === self.hash);
         });
@@ -69,8 +74,9 @@ class Block {
                 const blockRawData = hex2ascii(self.body);
                 const jsonData = JSON.parse(blockRawData);
                 if (jsonData && jsonData.data === 'Genesis Block')
-                    throw new Error("Genesis block has no data");
-                resolve(jsonData);
+                    resolve(null);
+                else
+                    resolve(jsonData);
             }
             catch (e) {
                 reject(e);
