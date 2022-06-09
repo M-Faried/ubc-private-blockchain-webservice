@@ -37,12 +37,12 @@ class ApplicationServer {
 
 	initExpressMiddleWare() {
 		this.app.use(morgan("dev"));
-		this.app.use(bodyParser.urlencoded({extended:true}));
+		this.app.use(bodyParser.urlencoded({ extended: true }));
 		this.app.use(bodyParser.json());
 	}
 
 	initControllers() {
-        require("./BlockchainController.js")(this.app, this.blockchain);
+		require("./BlockchainController.js")(this.app, this.blockchain);
 	}
 
 	start() {
